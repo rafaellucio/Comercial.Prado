@@ -78,7 +78,7 @@ div.au-stagger {
   animation: fadeIn 2s;
 }
 
-.card {
+/*.card {
   overflow: hidden;
   position: relative;
   border: 1px solid #CCC;
@@ -89,7 +89,7 @@ div.au-stagger {
   color: rgb(136, 172, 217);
   margin-bottom: 32px;
   box-shadow: 0 0 5px rgba(0, 0, 0, .5);
-}
+}*/
 
 .card .content {
   margin-top: 10px;
