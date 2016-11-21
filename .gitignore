@@ -1,10 +1,20 @@
 node_modules
-jspm_packages
-bower_components
+release
 .idea
 .DS_STORE
-/dist
-build/reports
 coverage
-test/e2e/dist
-/export
+test/e2e/dist# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+build
+
+# misc
+.DS_Store
+.env
+npm-debug.log
