@@ -1,9 +1,4 @@
-node_modules
-release
-.idea
-.DS_STORE
-coverage
-test/e2e/dist# See http://help.github.com/ignore-files/ for more about ignoring files.
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
 node_modules
@@ -15,6 +10,10 @@ coverage
 build
 
 # misc
+.idea
 .DS_Store
 .env
 npm-debug.log
+test/e2e/dist
+/export
+.vscode

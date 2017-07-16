@@ -1,24 +1,22 @@
 {
-  "name": "comercialprado.site",
-  "version": "0.1.0",
+  "name": "comercialprado",
+  "version": "0.0.1",
   "private": true,
-  "devDependencies": {
-    "enzyme": "^2.6.0",
-    "react-addons-test-utils": "^15.4.0",
-    "react-scripts": "0.7.0",
-    "redux-devtools": "^3.3.1"
+  "scripts": {
+    "start": "node ./server/bin/www"
   },
   "dependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-redux": "^4.4.5",
-    "redux": "^3.6.0"
+    "body-parser": "~1.16.0",
+    "bulma": "^0.4.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.0",
+    "express": "~4.14.1",
+    "font-awesome": "^4.7.0",
+    "mongoose": "^4.9.0",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "coverage": "npm run test -- --coverage"
+  "devDependencies": {
+    "eslint": "^4.2.0"
   }
 }
