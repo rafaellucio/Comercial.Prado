@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./server/bin/www",
-    "test": "mocha ./**/*.test.js"
+    "start:server": "hotnode ./server/bin/www",
+    "start:client": "http-server ./client -P 3000",
+    "test": "mocha $(find . -name '*.test.js' ! -ipath '*node_modules*')"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
@@ -20,8 +21,11 @@
   "devDependencies": {
     "chai": "^4.1.0",
     "eslint": "^4.2.0",
+    "hotnode": "0.0.8",
+    "http-server": "^0.10.0",
     "mocha": "^3.4.2",
     "sinon": "^2.3.8",
-    "sinon-mongoose": "^2.0.2"
+    "sinon-mongoose": "^2.0.2",
+    "supertest": "^3.0.0"
   }
 }

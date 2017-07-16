@@ -1,9 +1,0 @@
-.product-form {
-	margin: 0 auto;
-	width: calc(100% - 2rem);
-}
-
-.product-form .form-group {
-	padding: 0 1.3rem;
-	box-sizing: border-box;
-}
