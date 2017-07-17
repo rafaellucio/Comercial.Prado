@@ -5,8 +5,9 @@
   "scripts": {
     "start:server": "hotnode ./server/bin/www",
     "start:client": "http-server ./client -P 3000",
-    "test": "npm run lint && mocha $(find . -name '*.test.js' ! -ipath '*node_modules*')",
-    "lint": "eslint server/**/*.js && eslint client/**/*.js"
+    "test": "npm run lint && nyc --reporter=html --reporter=text mocha $(find . -name '*.test.js' ! -ipath '*node_modules*')",
+    "lint": "eslint server/**/*.js && eslint client/**/*.js",
+    "coverage": "istanbul cover node_modules/.bin/_mocha -- -- -u -R spec $(find . -name '*test.js' ! -ipath '*node_modules*')"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
@@ -26,7 +27,9 @@
     "eslint-plugin-import": "^2.7.0",
     "hotnode": "0.0.8",
     "http-server": "^0.10.0",
+    "istanbul": "^0.4.5",
     "mocha": "^3.4.2",
+    "nyc": "^11.0.3",
     "sinon": "^2.3.8",
     "sinon-mongoose": "^2.0.2",
     "supertest": "^3.0.0"
