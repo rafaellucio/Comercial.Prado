@@ -1,10 +1,10 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const Product = require('./Product/Product');
 
-global.db = mongoose.connect('mongodb://localhost:27017/comercialprado');
+// global.db = mongoose.connect('mongodb://localhost:27017/comercialprado');
 
 const app = express();
 
