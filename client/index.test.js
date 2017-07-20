@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const calculator = require('./index');
+import calculator from './index';
 
 describe('Mocha expect', () => {
   it('Assert Client Unit Tests', () => {
