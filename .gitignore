@@ -18,3 +18,5 @@ test/e2e/dist
 /export
 .nyc_output
 .vscode
+release_client
+release_server
