@@ -16,6 +16,5 @@ build
 npm-debug.log
 test/e2e/dist
 /export
-.nyc_output
 .vscode
 release

@@ -3,23 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start:server": "hotnode ./server/bin/www",
-    "start:client": "webpack-dev-server --colors",
-    "build:client": "rimraf release && NODE_ENV=production webpack",
+    "start": "webpack-dev-server --colors",
+    "build": "rimraf release && NODE_ENV=production webpack",
     "test": "npm run lint && jest --coverage",
     "test:watch": "npm run lint && jest --watch --coverage",
-    "lint": "eslint server/**/*.js && eslint client/**/*.js"
+    "lint": "eslint client/**/*.js"
   },
   "dependencies": {
-    "body-parser": "~1.16.0",
     "bulma": "^0.4.3",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.0",
-    "express": "~4.14.1",
     "font-awesome": "^4.7.0",
-    "mongoose": "^4.9.0",
-    "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.2",
     "webpack": "^3.3.0",
     "autoprefixer": "^7.1.2",
     "html-webpack-plugin": "^2.29.0",
@@ -39,23 +31,18 @@
     "eslint-config-airbnb": "^15.0.2",
     "eslint-plugin-import": "^2.7.0",
     "file-loader": "^0.11.2",
-    "hotnode": "0.0.8",
-    "http-server": "^0.10.0",
     "jest-cli": "^20.0.4",
     "postcss-loader": "^2.0.6",
     "rimraf": "^2.6.1",
     "sinon": "^2.3.8",
     "sinon-as-promised": "^4.0.3",
-    "sinon-mongoose": "^2.0.2",
     "style-loader": "^0.18.2",
-    "supertest": "^3.0.0",
     "url-loader": "^0.5.9",
     "webpack-dev-server": "^2.5.1"
   },
   "jest": {
     "collectCoverageFrom": [
-      "client/**/*.js",
-      "server/**/*.js"
+      "client/**/*.js"
     ],
     "coverageThreshold": {
       "global": {
