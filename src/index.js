@@ -1,8 +1,11 @@
+import logo from './logo.png';
+import './index.css';
+
 const page = `
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item" href="http://bulma.io">
-        <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+      <a class="navbar-item" href="http://www.comercialprado.com.br">
+        <img src="${logo}" alt="Vivendo para tornar a sua vida mais bonita e com baixo custo.">
       </a>
 
       <div class="navbar-burger">
@@ -21,31 +24,31 @@ const page = `
           <div class="field has-addons">
             <p class="control">
               <span class="select">
-                <select>
+                <select name="coin" aria-label="Moeda">
                   <option>R$</option>
                 </select>
               </span>
             </p>
             <p class="control is-expanded">
-              <input class="input" type="text" placeholder="Preço">
+              <input class="input" type="text" placeholder="Preço" aria-label="Preço" />
             </p>
           </div>
           <div class="field">
-            <label class="label">Validade</label>
+            <label class="label" for="validadte">Validade</label>
             <p class="control">
-              <input class="input" type="date" placeholder="DD/MM/YYYY">
+              <input class="input" type="date" id="validate" name="validate" placeholder="DD/MM/YYYY" aria-label="Validade" />
             </p>
           </div>
           <div class="field">
-            <label class="label">Descrição</label>
+            <label class="label" for="description">Descrição</label>
             <p class="control">
-              <textarea class="textarea" placeholder="Descreva um pouco sobre o produto..."></textarea>
+              <textarea class="textarea" id="description" name="description" placeholder="Descreva um pouco sobre o produto..." aria-label="Descreva um pouco sobre o produto..."></textarea>
             </p>
           </div>
           <div class="field">
-            <label class="label">Imagem</label>
+            <label class="label" for="file">Imagem</label>
             <p class="control">
-              <input class="input" type="file" placeholder="Text input">
+              <input class="input" id="file" name="file" type="file" placeholder="Text input" aria-label="Selecione uma imagem para o produto"/>
             </p>
           </div>
           <div class="field is-grouped">
@@ -82,7 +85,7 @@ const page = `
                 </div>
               </div>
               <footer class="card-footer">
-                <a class="card-footer-item">Edit</a>
+                <a class="card-footUnknowner-item">Edit</a>
                 <a class="card-footer-item">Delete</a>
               </footer>
             </div>
@@ -159,4 +162,4 @@ const page = `
   </main>
 `;
 
-document.getElementById('root').innerHTML = page;
+document.querySelector('#root').innerHTML = page;

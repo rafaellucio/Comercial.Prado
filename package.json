@@ -3,21 +3,26 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --colors",
-    "build": "rimraf release && NODE_ENV=production webpack",
-    "test": "npm run lint && jest --coverage",
-    "test:watch": "npm run lint && jest --watch --coverage",
-    "lint": "eslint client/**/*.js"
+    "start": "webpack-dev-server --colors --env.environment=dev",
+    "lint": "eslint src/**/*.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch --coverage",
+    "build:watch:dev": "npm run build -- --env.environment=dev",
+    "build:watch:prod": "npm run build -- --env.environment=prod",
+    "build:watch": "npm run build -- --watch",
+    "build": "npm run lint && npm run test && rimraf release && webpack"
   },
   "dependencies": {
-    "bulma": "^0.4.3",
-    "font-awesome": "^4.7.0",
-    "webpack": "^3.3.0",
     "autoprefixer": "^7.1.2",
-    "html-webpack-plugin": "^2.29.0",
-    "preload-webpack-plugin": "^1.2.2",
+    "case-sensitive-paths-webpack-plugin": "^2.1.1",
     "compression-webpack-plugin": "^1.0.0",
-    "extract-text-webpack-plugin": "^3.0.0"
+    "extract-text-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^2.29.0",
+    "object-assign": "^4.1.1",
+    "postcss-flexbugs-fixes": "^3.2.0",
+    "promise": "^8.0.1",
+    "webpack": "^3.5.4",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel-jest": "^20.0.3",
@@ -25,25 +30,49 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
-    "chai": "^4.1.0",
     "css-loader": "^0.28.4",
-    "eslint": "^4.2.0",
-    "eslint-config-airbnb": "^15.0.2",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
     "file-loader": "^0.11.2",
+    "identity-obj-proxy": "^3.0.0",
     "jest-cli": "^20.0.4",
     "postcss-loader": "^2.0.6",
+    "preload-webpack-plugin": "^1.2.3",
     "rimraf": "^2.6.1",
-    "sinon": "^2.3.8",
-    "sinon-as-promised": "^4.0.3",
+    "sinon": "^2.4.1",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack-dev-server": "^2.5.1"
+    "webpack-dev-server": "^2.6.1",
+    "webpack-merge": "^4.1.0"
   },
   "jest": {
     "collectCoverageFrom": [
-      "client/**/*.js"
+      "src/**/*.{js}"
     ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.js?(x)",
+      "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    },
     "coverageThreshold": {
       "global": {
         "banches": 100,
@@ -51,6 +80,34 @@
         "lines": 100,
         "statements": 100
       }
+    }
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-3"
+    ],
+    "compact": true
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+      "browser": true,
+      "es6": true,
+      "jest/globals": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "jest"
+    ],
+    "rules": {
+      "jest/no-disabled-tests": "warn",
+      "jest/no-focused-tests": "error",
+      "jest/no-identical-title": "error",
+      "jest/valid-expect": "error"
     }
   }
 }
